@@ -1,1 +1,21 @@
+A=[1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1]
+def max_cons_1(A):
+	n=len(A)
+	count=0
+	ans=0
+	for i in range(n):
+		if A[i]==0:
+			count=0
+		else:
+			count+=1
+			ans=max(ans,count)
+	return (ans)
 
+ans=max_cons_1(A)
+
+for i in range(len(A)):
+	if A[i]==0:
+		A[i]=1
+		ans=max(ans,max_cons_1(A))
+		A[i]=0
+print(ans)
